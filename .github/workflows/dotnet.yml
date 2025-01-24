@@ -32,4 +32,4 @@ jobs:
       run: dotnet build ./DiceGameSimulation/DiceGameSimulation.sln --no-restore
     
     - name: Run
-      run: dotnet run ./DiceGameSimulation/DiceGameSimulation.csproj
+      run: dotnet run --project ./DiceGameSimulation/DiceGameSimulation.csproj
