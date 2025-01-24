@@ -64,7 +64,6 @@ namespace DiceGameSimulation
 				Console.WriteLine($"Total {key} occurred {finalScores[key]} times.");
 			}
 			Console.WriteLine($"Total simulation took {execTime.Elapsed.TotalSeconds} seconds.");
-			Console.ReadKey();
 		}
 	}
 }

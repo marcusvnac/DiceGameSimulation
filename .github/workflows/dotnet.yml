@@ -1,0 +1,35 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: .NET Build and Run
+
+on:
+  workflow_dispatch:
+  push:
+    branches: 
+      - master
+  pull_request:
+    branches:
+    - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 9.0.x
+    
+    - name: Restore dependencies
+      run: dotnet restore ./DiceGameSimulation/DiceGameSimulation.sln
+    
+    - name: Build
+      run: dotnet build ./DiceGameSimulation/DiceGameSimulation.sln --no-restore
+    
+    - name: Run
+      run: dotnet run --project ./DiceGameSimulation/DiceGameSimulation.csproj
